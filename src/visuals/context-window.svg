@@ -1,0 +1,22 @@
+<svg viewBox="0 0 240 190" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg" font-family="inherit" role="img" aria-label="정해진 크기의 상자에 내용이 차오르고, 한도를 넘은 내용이 위로 흘러넘치는 그림">
+  <!-- 넘친 내용 (상자 위로) -->
+  <g fill="var(--viz-accent-2)" opacity="0.9">
+    <rect x="96" y="14" width="20" height="10" rx="2"/>
+    <rect x="122" y="8" width="20" height="10" rx="2"/>
+    <rect x="148" y="16" width="20" height="10" rx="2"/>
+  </g>
+  <text x="176" y="20" font-size="9" fill="var(--viz-muted)">넘침(잊힘)</text>
+
+  <!-- 상자 (컨텍스트 윈도우) -->
+  <rect x="70" y="34" width="100" height="140" rx="4" fill="none" stroke="currentColor" stroke-width="1"/>
+  <!-- 채워진 내용 -->
+  <g fill="var(--viz-accent)">
+    <rect x="80" y="150" width="80" height="14" rx="2"/>
+    <rect x="80" y="130" width="80" height="14" rx="2"/>
+    <rect x="80" y="110" width="80" height="14" rx="2"/>
+    <rect x="80" y="90" width="80" height="14" rx="2"/>
+    <rect x="80" y="70" width="80" height="14" rx="2"/>
+    <rect x="80" y="50" width="80" height="14" rx="2"/>
+  </g>
+  <text x="120" y="188" text-anchor="middle" font-size="9" fill="var(--viz-muted)">정해진 한도</text>
+</svg>

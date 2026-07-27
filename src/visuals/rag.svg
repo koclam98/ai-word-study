@@ -1,0 +1,37 @@
+<svg viewBox="0 0 340 80" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg" font-family="inherit" role="img" aria-label="질문에서 검색, 관련 문서, LLM을 거쳐 답변으로 이어지는 5단계 흐름">
+  <defs>
+    <marker id="rag-arrow" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--viz-muted)" stroke-width="1"/>
+    </marker>
+  </defs>
+  <g font-size="10" text-anchor="middle">
+    <!-- 5개 노드 -->
+    <g>
+      <rect x="6" y="28" width="52" height="24" rx="5" fill="none" stroke="currentColor" stroke-width="1"/>
+      <text x="32" y="43" fill="currentColor">질문</text>
+    </g>
+    <g>
+      <rect x="82" y="28" width="52" height="24" rx="5" fill="none" stroke="var(--viz-accent)" stroke-width="1"/>
+      <text x="108" y="43" fill="currentColor">검색</text>
+    </g>
+    <g>
+      <rect x="158" y="28" width="60" height="24" rx="5" fill="none" stroke="var(--viz-accent)" stroke-width="1"/>
+      <text x="188" y="43" fill="currentColor">관련 문서</text>
+    </g>
+    <g>
+      <rect x="242" y="28" width="44" height="24" rx="5" fill="none" stroke="var(--viz-accent-2)" stroke-width="1"/>
+      <text x="264" y="43" fill="currentColor">LLM</text>
+    </g>
+    <g>
+      <rect x="300" y="28" width="36" height="24" rx="5" fill="none" stroke="currentColor" stroke-width="1"/>
+      <text x="318" y="43" fill="currentColor">답변</text>
+    </g>
+  </g>
+  <!-- 화살표 -->
+  <g stroke="var(--viz-muted)" stroke-width="1" marker-end="url(#rag-arrow)">
+    <line x1="59" y1="40" x2="80" y2="40"/>
+    <line x1="135" y1="40" x2="156" y2="40"/>
+    <line x1="219" y1="40" x2="240" y2="40"/>
+    <line x1="287" y1="40" x2="298" y2="40"/>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+@import 'tailwindcss';
+
+/* 클래스 기반 다크모드: html.dark 일 때 dark: 유틸 적용 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light dark;
+  /* 시각 자료용 색상. SVG는 currentColor + 이 변수들만 사용(하드코딩 금지). */
+  --viz-accent: #0284c7; /* sky-600 */
+  --viz-accent-2: #d97706; /* amber-600 */
+  --viz-muted: #94a3b8; /* slate-400 */
+}
+
+.dark {
+  --viz-accent: #38bdf8; /* sky-400 */
+  --viz-accent-2: #fbbf24; /* amber-400 */
+  --viz-muted: #64748b; /* slate-500 */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+    'Pretendard', 'Malgun Gothic', 'Segoe UI', system-ui, sans-serif;
+}

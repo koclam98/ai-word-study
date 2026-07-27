@@ -1,0 +1,30 @@
+<svg viewBox="0 0 340 200" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg" font-family="inherit" role="img" aria-label="'환불 방법' 질문에 키워드 검색은 단어가 정확히 일치하는 문서만 찾고, 벡터 검색은 뜻이 비슷한 '결제 취소' 문서까지 찾는 비교 그림">
+  <!-- 질문 -->
+  <rect x="120" y="10" width="100" height="24" rx="12" fill="none" stroke="currentColor" stroke-width="1"/>
+  <text x="170" y="26" text-anchor="middle" font-size="11" fill="currentColor">질문: 환불 방법</text>
+
+  <line x1="170" y1="34" x2="90" y2="54" stroke="var(--viz-muted)" stroke-width="1"/>
+  <line x1="170" y1="34" x2="250" y2="54" stroke="var(--viz-muted)" stroke-width="1"/>
+
+  <!-- 키워드 검색 -->
+  <text x="90" y="66" text-anchor="middle" font-size="11" fill="var(--viz-accent)">키워드 검색</text>
+  <g font-size="10">
+    <text x="30" y="92" fill="currentColor">환불 규정</text>
+    <text x="150" y="92" fill="var(--viz-accent)">✓</text>
+    <text x="30" y="116" fill="var(--viz-muted)">결제 취소 안내</text>
+    <text x="150" y="116" fill="var(--viz-muted)">✕</text>
+  </g>
+  <text x="90" y="140" text-anchor="middle" font-size="9" fill="var(--viz-muted)">단어가 같아야 찾음</text>
+
+  <!-- 벡터 검색 -->
+  <text x="250" y="66" text-anchor="middle" font-size="11" fill="var(--viz-accent-2)">벡터 검색</text>
+  <g font-size="10">
+    <text x="196" y="92" fill="currentColor">환불 규정</text>
+    <text x="312" y="92" fill="var(--viz-accent-2)">✓</text>
+    <text x="196" y="116" fill="currentColor">결제 취소 안내</text>
+    <text x="312" y="116" fill="var(--viz-accent-2)">✓</text>
+  </g>
+  <text x="250" y="140" text-anchor="middle" font-size="9" fill="var(--viz-muted)">뜻이 비슷하면 찾음</text>
+
+  <line x1="170" y1="60" x2="170" y2="150" stroke="var(--viz-muted)" stroke-width="1" stroke-dasharray="3 3"/>
+</svg>

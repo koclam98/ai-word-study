@@ -1,0 +1,42 @@
+<svg viewBox="0 0 320 180" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg" font-family="inherit" role="img" aria-label="강아지는 동물, 동물은 생물이라는 실선 관계와, 강아지는 생물이라는 점선으로 자동 도출된 관계를 보여주는 관계도">
+  <defs>
+    <marker id="ont-solid" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6" fill="none" stroke="currentColor" stroke-width="1"/>
+    </marker>
+    <marker id="ont-dash" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--viz-accent-2)" stroke-width="1"/>
+    </marker>
+  </defs>
+
+  <!-- 노드 -->
+  <g font-size="11" text-anchor="middle">
+    <ellipse cx="55" cy="60" rx="34" ry="20" fill="none" stroke="var(--viz-accent)" stroke-width="1"/>
+    <text x="55" y="64" fill="currentColor">강아지</text>
+    <ellipse cx="200" cy="60" rx="34" ry="20" fill="none" stroke="var(--viz-accent)" stroke-width="1"/>
+    <text x="200" y="64" fill="currentColor">동물</text>
+    <ellipse cx="200" cy="150" rx="34" ry="20" fill="none" stroke="var(--viz-accent)" stroke-width="1"/>
+    <text x="200" y="154" fill="currentColor">생물</text>
+  </g>
+
+  <!-- 실선: 적어둔 관계 -->
+  <g stroke="currentColor" stroke-width="1" fill="none">
+    <line x1="90" y1="60" x2="163" y2="60" marker-end="url(#ont-solid)"/>
+    <line x1="200" y1="81" x2="200" y2="127" marker-end="url(#ont-solid)"/>
+  </g>
+  <g font-size="9" fill="currentColor" text-anchor="middle">
+    <text x="126" y="52">이다</text>
+    <text x="214" y="107">이다</text>
+  </g>
+
+  <!-- 점선: 자동 도출된 관계 -->
+  <path d="M60 80 Q95 165 163 152" stroke="var(--viz-accent-2)" stroke-width="1" fill="none" stroke-dasharray="4 3" marker-end="url(#ont-dash)"/>
+  <text x="92" y="150" font-size="9" fill="var(--viz-accent-2)" text-anchor="middle">이다(자동)</text>
+
+  <!-- 범례 -->
+  <g font-size="9">
+    <line x1="240" y1="18" x2="262" y2="18" stroke="currentColor" stroke-width="1"/>
+    <text x="266" y="21" fill="var(--viz-muted)">적어둔 관계</text>
+    <line x1="240" y1="32" x2="262" y2="32" stroke="var(--viz-accent-2)" stroke-width="1" stroke-dasharray="4 3"/>
+    <text x="266" y="35" fill="var(--viz-muted)">자동 도출</text>
+  </g>
+</svg>
