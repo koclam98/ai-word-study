@@ -10,7 +10,7 @@ import { TermDetail } from './components/TermDetail'
 
 const TERMS = termsData as Term[]
 const BY_ID = new Map(TERMS.map((t) => [t.id, t]))
-const ISSUE_URL = 'https://github.com/OWNER/REPO/issues/new' // README에 교체 안내
+const ISSUE_URL = 'https://github.com/koclam98/ai-word-study/issues/new'
 
 export default function App() {
   const searcher = useMemo(() => createSearcher(TERMS), [])

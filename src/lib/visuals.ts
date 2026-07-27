@@ -1,6 +1,24 @@
 import type { ComponentType } from 'react'
 import { ChunkingDemo } from '../components/visuals/ChunkingDemo'
 import { TemperatureDemo } from '../components/visuals/TemperatureDemo'
+import { RagFlowDemo, ContextWindowDemo } from '../components/visuals/FlowDemos'
+import {
+  StreamingDemo,
+  TokenizeDemo,
+  CotDemo,
+  QuantizationDemo,
+  RerankingDemo,
+} from '../components/visuals/TextVisuals'
+import {
+  AgentLoopDemo,
+  AttentionDemo,
+  HybridSearchDemo,
+  AnnSearchDemo,
+  CosineSimDemo,
+  MoeDemo,
+  EmbeddingDemo,
+  FunctionCallingDemo,
+} from '../components/visuals/DiagramVisuals'
 
 // src/visuals/*.svg 를 빌드타임에 raw 문자열로 인라인 → fetch 없이 currentColor/CSS변수 상속.
 const svgModules = import.meta.glob('../visuals/*.svg', {
@@ -25,4 +43,19 @@ export function getSvg(src: string | undefined): string | null {
 export const COMPONENTS: Record<string, ComponentType> = {
   ChunkingDemo,
   TemperatureDemo,
+  RagFlowDemo,
+  ContextWindowDemo,
+  StreamingDemo,
+  TokenizeDemo,
+  CotDemo,
+  QuantizationDemo,
+  RerankingDemo,
+  AgentLoopDemo,
+  AttentionDemo,
+  HybridSearchDemo,
+  AnnSearchDemo,
+  CosineSimDemo,
+  MoeDemo,
+  EmbeddingDemo,
+  FunctionCallingDemo,
 }

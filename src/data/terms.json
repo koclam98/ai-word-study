@@ -1,6 +1,7 @@
 [
   {
     "id": "token",
+    "visual": { "type": "component", "name": "TokenizeDemo", "caption": "문장이 AI가 읽는 작은 조각(토큰)들로 잘립니다." },
     "term": "토큰",
     "termEn": "Token",
     "aliases": ["토크나이즈", "토크나이징"],
@@ -31,11 +32,7 @@
       { "id": "token", "note": "토큰은 글을 자른 조각, 임베딩은 그 조각을 의미 숫자로 바꾼 결과" },
       { "id": "finetuning", "note": "임베딩은 검색용으로 의미를 숫자화, 파인튜닝은 모델 자체를 재학습" }
     ],
-    "visual": {
-      "type": "svg",
-      "src": "/visuals/embedding.svg",
-      "caption": "뜻이 비슷한 단어는 가까이 모입니다. 같은 '배'라도 의미에 따라 다른 무리에 놓입니다."
-    }
+    "visual": { "type": "component", "name": "EmbeddingDemo", "caption": "흩어진 단어들이 뜻이 비슷한 것끼리 무리로 모입니다." }
   },
   {
     "id": "vector",
@@ -76,6 +73,7 @@
   },
   {
     "id": "cosine-similarity",
+    "visual": { "type": "component", "name": "CosineSimDemo", "caption": "두 벡터의 각도가 좁을수록 의미가 비슷합니다." },
     "term": "코사인 유사도",
     "termEn": "Cosine Similarity",
     "aliases": ["코사인유사도", "유사도"],
@@ -127,6 +125,7 @@
   },
   {
     "id": "ann-search",
+    "visual": { "type": "component", "name": "AnnSearchDemo", "caption": "이웃 점을 점프하며 목표 근처로 빠르게 다가갑니다." },
     "term": "ANN 검색",
     "termEn": "ANN Search",
     "aliases": ["근사최근접이웃", "근사이웃검색", "Approximate Nearest Neighbor"],
@@ -143,6 +142,7 @@
   },
   {
     "id": "hybrid-search",
+    "visual": { "type": "component", "name": "HybridSearchDemo", "caption": "키워드 검색과 벡터 검색 결과를 하나로 합칩니다." },
     "term": "하이브리드 검색",
     "termEn": "Hybrid Search",
     "aliases": ["혼합검색", "키워드벡터검색"],
@@ -157,6 +157,7 @@
   },
   {
     "id": "reranking",
+    "visual": { "type": "component", "name": "RerankingDemo", "caption": "빠르게 모은 후보를 다시 점수 매겨 순서를 바로잡습니다." },
     "term": "리랭킹",
     "termEn": "Reranking",
     "aliases": ["재순위화", "재정렬", "리랭커"],
@@ -217,9 +218,9 @@
       { "id": "token", "note": "토큰은 글을 세는 단위, 컨텍스트 윈도우는 그 단위로 몇 개까지 담을 수 있는지의 한도" }
     ],
     "visual": {
-      "type": "svg",
-      "src": "/visuals/context-window.svg",
-      "caption": "상자 크기가 한도입니다. 넘치는 내용은 위로 흘러나가 잊힙니다."
+      "type": "component",
+      "name": "ContextWindowDemo",
+      "caption": "내용이 아래에서 위로 차오르다, 한도를 넘으면 위로 흘러나가 잊힙니다."
     }
   },
   {
@@ -246,6 +247,7 @@
   },
   {
     "id": "quantization",
+    "visual": { "type": "component", "name": "QuantizationDemo", "caption": "촘촘한 숫자를 성글게 줄여 모델을 가볍게 만듭니다." },
     "term": "양자화",
     "termEn": "Quantization",
     "aliases": ["경량화", "퀀타이제이션"],
@@ -322,6 +324,7 @@
   },
   {
     "id": "cot",
+    "visual": { "type": "component", "name": "CotDemo", "caption": "생각의 단계를 차례로 펼친 뒤 결론에 이릅니다." },
     "term": "CoT",
     "termEn": "Chain of Thought",
     "aliases": ["생각의사슬", "사고연쇄", "체인오브쏘트", "단계적추론"],
@@ -357,6 +360,7 @@
   },
   {
     "id": "streaming",
+    "visual": { "type": "component", "name": "StreamingDemo", "caption": "답이 토큰 단위로 하나씩 만들어져 나옵니다." },
     "term": "스트리밍",
     "termEn": "Streaming",
     "aliases": ["실시간출력", "토큰스트리밍"],
@@ -385,13 +389,14 @@
       { "id": "finetuning", "note": "RAG는 모델은 그대로 두고 자료를 찾아 넣는 방식, 파인튜닝은 모델 자체를 재학습시키는 방식" }
     ],
     "visual": {
-      "type": "svg",
-      "src": "/visuals/rag.svg",
-      "caption": "질문 → 관련 문서 검색 → 그 내용을 근거로 LLM이 답변을 만듭니다."
+      "type": "component",
+      "name": "RagFlowDemo",
+      "caption": "질문 → 관련 문서 검색 → 그 내용을 근거로 LLM이 답변을 만듭니다. 데이터가 왼쪽에서 오른쪽으로 흐릅니다."
     }
   },
   {
     "id": "function-calling",
+    "visual": { "type": "component", "name": "FunctionCallingDemo", "caption": "모델이 도구에 요청을 보내고 결과를 돌려받습니다." },
     "term": "Function Calling",
     "termEn": "Function Calling",
     "aliases": ["함수호출", "툴콜링", "tool calling", "도구호출"],
@@ -408,6 +413,7 @@
   },
   {
     "id": "agent",
+    "visual": { "type": "component", "name": "AgentLoopDemo", "caption": "생각 → 행동(도구) → 관찰을 스스로 반복합니다." },
     "term": "에이전트",
     "termEn": "Agent",
     "aliases": ["AI에이전트", "자율에이전트", "agent"],
@@ -649,6 +655,346 @@
     "related": ["ragas", "llm", "parameter"],
     "confusedWith": [
       { "id": "ragas", "note": "벤치마크는 모델 자체의 범용 능력을 겨루는 시험, RAGAS는 만들어진 RAG 시스템의 답변 품질을 재는 도구" }
+    ]
+  },
+  {
+    "id": "tokenizer",
+    "term": "토크나이저",
+    "termEn": "Tokenizer",
+    "aliases": ["토큰화기", "분절기"],
+    "category": "데이터",
+    "level": "기초",
+    "oneLiner": "글을 토큰 단위로 잘라 주는 도구",
+    "description": "토크나이저는 사람이 쓴 문장을 AI가 읽을 수 있는 토큰 조각으로 잘라 주는 프로그램입니다. 어떤 규칙으로 자르느냐에 따라 같은 문장도 토큰 개수가 달라지고, 모델마다 쓰는 토크나이저가 다릅니다. 같은 글이라도 한국어가 영어보다 토큰이 더 많이 나오는 경우가 많아, 요금과 길이 계산에 영향을 줍니다.",
+    "analogy": "긴 종이를 정해진 규칙대로 잘라 주는 재단기와 같습니다.",
+    "example": "영어로 쓰면 500토큰이던 문서가 한국어로는 900토큰이 나온다면, 토크나이저가 한국어를 더 잘게 자르기 때문입니다.",
+    "related": ["token", "context-window"],
+    "confusedWith": [
+      { "id": "token", "note": "토큰은 잘린 결과 조각, 토크나이저는 그 조각으로 잘라 주는 도구" }
+    ]
+  },
+  {
+    "id": "foundation-model",
+    "term": "파운데이션 모델",
+    "termEn": "Foundation Model",
+    "aliases": ["기반모델", "파운데이션모델", "베이스모델"],
+    "category": "모델",
+    "level": "기초",
+    "oneLiner": "방대한 데이터로 미리 학습해 여러 용도에 두루 쓰는 대형 기반 모델",
+    "description": "파운데이션 모델은 엄청난 양의 데이터로 한 번 크게 학습해 두고, 이후 번역·요약·챗봇 등 다양한 일에 갖다 쓰는 '밑바탕' 모델입니다. GPT나 Claude 같은 대형 언어 모델이 대표적입니다. 필요하면 이 모델을 조금 손봐서(파인튜닝) 특정 업무에 맞추기도 합니다.",
+    "analogy": "여러 요리에 두루 쓰는 잘 우린 육수와 같습니다. 여기에 재료만 더하면 각각 다른 요리가 됩니다.",
+    "example": "사내 챗봇을 만들 때 밑바탕이 되는 GPT·Claude 같은 모델이 파운데이션 모델이고, 그 위에 우리 데이터를 얹어 특화시킵니다.",
+    "related": ["llm", "finetuning", "pretraining"],
+    "confusedWith": [
+      { "id": "finetuning", "note": "파운데이션 모델은 범용으로 미리 학습된 밑바탕, 파인튜닝은 그 밑바탕을 특정 용도로 다시 손보는 작업" }
+    ]
+  },
+  {
+    "id": "transformer",
+    "term": "트랜스포머",
+    "termEn": "Transformer",
+    "aliases": ["트랜스포머구조", "Transformer"],
+    "category": "모델",
+    "level": "중급",
+    "oneLiner": "요즘 대부분의 AI 언어 모델이 쓰는 핵심 신경망 구조",
+    "description": "트랜스포머는 2017년에 나온 신경망 설계 방식으로, 문장 속 단어들이 서로 어떤 관계인지를 한꺼번에 살펴보는 '어텐션'이라는 방법을 씁니다. 덕분에 긴 문장의 맥락을 잘 잡아내고 병렬 처리가 빨라, 오늘날 GPT·Claude를 포함한 거의 모든 대형 언어 모델의 바탕이 되었습니다.",
+    "analogy": "회의에서 참석자 전원이 서로를 동시에 보며 누구 말이 중요한지 파악하는 방식과 같습니다.",
+    "example": "'LLM은 트랜스포머 기반'이라는 말은, 그 모델의 속 구조가 트랜스포머 설계로 만들어졌다는 뜻입니다.",
+    "related": ["attention", "llm", "parameter"],
+    "confusedWith": [
+      { "id": "llm", "note": "트랜스포머는 모델을 만드는 설계 구조, LLM은 그 구조로 실제로 만들어진 대형 언어 모델" }
+    ]
+  },
+  {
+    "id": "attention",
+    "visual": { "type": "component", "name": "AttentionDemo", "caption": "지금 보는 단어가 어떤 단어에 더 집중하는지 보여줍니다." },
+    "term": "어텐션",
+    "termEn": "Attention",
+    "aliases": ["주의집중", "셀프어텐션", "Self-Attention"],
+    "category": "모델",
+    "level": "중급",
+    "oneLiner": "문장에서 어떤 단어에 더 집중할지 정하는 계산 방식",
+    "description": "어텐션은 AI가 문장을 이해할 때 모든 단어를 똑같이 보지 않고, 지금 판단에 중요한 단어에 가중치를 더 두는 방법입니다. 예를 들어 '그 사과는 빨갛다'에서 '빨갛다'를 볼 때 '사과'에 더 집중하는 식입니다. 트랜스포머의 핵심 부품으로, 긴 문맥에서 관련 있는 부분을 연결해 줍니다.",
+    "analogy": "긴 문서에서 형광펜으로 핵심 문장만 칠해 두고 그 부분을 위주로 읽는 것과 같습니다.",
+    "example": "'대명사가 누구를 가리키는지'를 AI가 잘 맞히는 이유는, 어텐션이 그 대명사와 앞에 나온 이름을 연결해 주기 때문입니다.",
+    "related": ["transformer", "context-window"],
+    "confusedWith": [
+      { "id": "transformer", "note": "어텐션은 중요한 단어에 집중하는 계산 방법, 트랜스포머는 그 방법을 핵심으로 삼아 만든 전체 구조" }
+    ]
+  },
+  {
+    "id": "pretraining",
+    "term": "사전학습",
+    "termEn": "Pre-training",
+    "aliases": ["프리트레이닝", "선행학습"],
+    "category": "모델",
+    "level": "중급",
+    "oneLiner": "대량의 일반 데이터로 모델의 기초 능력을 처음 길러 두는 단계",
+    "description": "사전학습은 모델에게 인터넷 글·책 등 방대한 텍스트를 보여 주며 언어의 기본 규칙과 지식을 익히게 하는 첫 단계입니다. 이 단계에서 모델은 특정 업무가 아니라 '말이 어떻게 이어지는지'를 폭넓게 배웁니다. 이후 파인튜닝이나 RLHF로 특정 용도·태도에 맞게 다듬습니다.",
+    "analogy": "특정 직무를 배우기 전에 초·중·고에서 두루 기초 교육을 받는 것과 같습니다.",
+    "example": "새 언어 모델이 '세상 상식을 이미 알고 있는' 이유는, 사전학습 때 엄청난 양의 글을 미리 읽어 뒀기 때문입니다.",
+    "related": ["foundation-model", "finetuning", "rlhf"],
+    "confusedWith": [
+      { "id": "finetuning", "note": "사전학습은 대량 데이터로 기초를 처음 만드는 단계, 파인튜닝은 그 기초 위에 특정 업무를 얹어 다듬는 단계" }
+    ]
+  },
+  {
+    "id": "rlhf",
+    "term": "인간 피드백 강화학습",
+    "termEn": "RLHF",
+    "aliases": ["알에이치에프", "RLHF", "사람피드백학습"],
+    "category": "모델",
+    "level": "심화",
+    "oneLiner": "사람이 매긴 선호로 모델의 답변 태도를 다듬는 학습 방법",
+    "description": "RLHF는 모델이 내놓은 여러 답변을 사람이 '이게 더 낫다'고 평가하고, 그 선호를 바탕으로 모델이 더 좋은 답을 내도록 다시 학습시키는 방법입니다. 이 과정을 거치면 모델이 더 정중하고 안전하며 도움이 되는 방향으로 답하게 됩니다. 오늘날 챗봇이 자연스럽게 대화하는 데 큰 역할을 합니다.",
+    "analogy": "신입의 여러 보고서 초안 중 상사가 나은 것을 골라 주며 방향을 잡아 주는 것과 같습니다.",
+    "example": "챗봇이 무례하거나 위험한 요청을 정중히 거절하도록 만드는 훈련의 상당 부분이 RLHF로 이뤄집니다.",
+    "related": ["finetuning", "pretraining", "guardrail"],
+    "confusedWith": [
+      { "id": "finetuning", "note": "파인튜닝은 정답 예시로 지식·형식을 가르치는 것, RLHF는 사람의 선호로 답변의 태도·품질을 다듬는 것" }
+    ]
+  },
+  {
+    "id": "lora",
+    "term": "LoRA",
+    "termEn": "LoRA",
+    "aliases": ["로라", "저랭크어댑터", "경량파인튜닝"],
+    "category": "모델",
+    "level": "심화",
+    "oneLiner": "모델 전체가 아닌 작은 부품만 학습해 값싸게 미세조정하는 기법",
+    "description": "LoRA는 거대한 모델을 통째로 다시 학습하는 대신, 작은 추가 부품만 얹어 그 부분만 학습하는 파인튜닝 방법입니다. 원본 모델은 그대로 두므로 학습 비용과 저장 공간이 크게 줄고, 용도별로 작은 부품만 바꿔 끼울 수 있습니다. 개인·소규모 팀도 대형 모델을 특화시킬 수 있게 해 준 대표 기술입니다.",
+    "analogy": "자동차 엔진을 통째로 바꾸지 않고, 필요한 부위에 작은 튜닝 키트만 끼워 성격을 바꾸는 것과 같습니다.",
+    "example": "회사 말투에 맞춘 챗봇이 필요할 때, 대형 모델 전체가 아니라 LoRA 부품만 학습해 저렴하게 특화시킵니다.",
+    "related": ["finetuning", "quantization", "foundation-model"],
+    "confusedWith": [
+      { "id": "finetuning", "note": "일반 파인튜닝은 모델 전체를 다시 학습, LoRA는 작은 부품만 학습하는 값싼 파인튜닝 방식" }
+    ]
+  },
+  {
+    "id": "distillation",
+    "term": "지식 증류",
+    "termEn": "Knowledge Distillation",
+    "aliases": ["디스틸레이션", "모델증류", "증류"],
+    "category": "모델",
+    "level": "심화",
+    "oneLiner": "큰 모델의 능력을 작은 모델에 옮겨 담아 가볍게 만드는 방법",
+    "description": "지식 증류는 성능 좋은 큰 모델(선생)의 답변과 판단을 작은 모델(학생)이 따라 배우게 해, 작지만 꽤 똑똑한 모델을 만드는 기법입니다. 결과 모델은 크기가 작아 빠르고 저렴하게 돌릴 수 있어, 휴대폰이나 실시간 서비스에 적합합니다. 대신 원본만큼의 성능은 아닙니다.",
+    "analogy": "베테랑 장인의 노하우를 제자가 배워, 훨씬 적은 도구로도 비슷한 결과를 내게 하는 것과 같습니다.",
+    "example": "거대 모델을 그대로 쓰기엔 비용이 커서, 증류로 만든 작은 모델을 실시간 응답이 필요한 서비스에 배치합니다.",
+    "related": ["quantization", "foundation-model", "latency"],
+    "confusedWith": [
+      { "id": "quantization", "note": "증류는 지식을 작은 모델로 옮겨 새 모델을 만드는 것, 양자화는 같은 모델의 숫자 정밀도를 낮춰 가볍게 하는 것" }
+    ]
+  },
+  {
+    "id": "moe",
+    "visual": { "type": "component", "name": "MoeDemo", "caption": "입력마다 전문가 일부만 켜서 크지만 빠르게 처리합니다." },
+    "term": "전문가 혼합",
+    "termEn": "Mixture of Experts (MoE)",
+    "aliases": ["MoE", "믹스처오브엑스퍼트", "전문가혼합모델"],
+    "category": "모델",
+    "level": "심화",
+    "oneLiner": "여러 전문가 조각 중 필요한 일부만 골라 써서 효율을 높이는 구조",
+    "description": "전문가 혼합(MoE)은 모델 안에 여러 '전문가' 부분을 두고, 입력마다 그중 관련 있는 몇 개만 골라 쓰는 구조입니다. 전체 모델은 매우 크지만 매번 일부만 동작하므로, 큰 능력을 유지하면서도 계산 비용을 아낄 수 있습니다. 최신 대형 모델 상당수가 이 방식을 채택합니다.",
+    "analogy": "질문마다 회사 전체가 아니라 담당 부서 몇 곳만 나서서 답하는 것과 같습니다.",
+    "example": "'파라미터는 엄청 큰데 속도는 괜찮은' 모델이라면, MoE로 매번 일부 전문가만 켜서 돌리는 구조일 가능성이 큽니다.",
+    "related": ["parameter", "transformer", "latency"],
+    "confusedWith": [
+      { "id": "parameter", "note": "파라미터는 모델이 가진 내부 학습값의 개수, MoE는 그 값들을 여러 전문가로 나눠 일부만 쓰게 만든 구조" }
+    ]
+  },
+  {
+    "id": "overfitting",
+    "term": "과적합",
+    "termEn": "Overfitting",
+    "aliases": ["오버피팅", "과대적합"],
+    "category": "모델",
+    "level": "중급",
+    "oneLiner": "학습 데이터만 달달 외워 새 데이터에는 약해지는 현상",
+    "description": "과적합은 모델이 학습에 쓴 예시를 너무 통째로 외워 버려, 정작 처음 보는 새 데이터에서는 성능이 떨어지는 문제입니다. 시험 족보만 외운 학생이 조금만 변형된 문제엔 틀리는 것과 같습니다. 데이터를 다양하게 늘리거나 학습을 적당히 멈춰 예방합니다.",
+    "analogy": "기출문제 답만 외워서, 숫자만 바뀐 새 문제엔 손도 못 대는 상황과 같습니다.",
+    "example": "파인튜닝한 모델이 학습에 쓴 문장은 완벽히 맞히는데 실제 고객 문의엔 엉뚱하게 답한다면, 과적합을 의심합니다.",
+    "related": ["finetuning", "pretraining", "benchmark"],
+    "confusedWith": [
+      { "id": "hallucination", "note": "과적합은 학습 데이터에 지나치게 맞춰져 일반화에 실패하는 학습 문제, 할루시네이션은 모델이 사실 아닌 내용을 지어내는 출력 문제" }
+    ]
+  },
+  {
+    "id": "zero-shot",
+    "term": "제로샷",
+    "termEn": "Zero-shot",
+    "aliases": ["제로샷", "예시없이", "Zero-shot"],
+    "category": "실행",
+    "level": "기초",
+    "oneLiner": "예시를 하나도 안 주고 설명만으로 곧장 시키는 방식",
+    "description": "제로샷은 AI에게 예시를 전혀 주지 않고 '이 일을 해 줘'라고 설명만으로 요청하는 방식입니다. 요즘 모델은 기본기가 좋아 간단한 일은 예시 없이도 잘 해냅니다. 결과가 들쭉날쭉하면 예시를 몇 개 붙이는 Few-shot으로 넘어갑니다.",
+    "analogy": "샘플을 안 보여 주고 '알아서 해 주세요'라고 맡기는 것과 같습니다.",
+    "example": "'이 문장 긍정인지 부정인지 말해 줘'처럼 예시 없이 바로 시키면 제로샷입니다.",
+    "related": ["few-shot", "prompt", "prompt-engineering"],
+    "confusedWith": [
+      { "id": "few-shot", "note": "제로샷은 예시를 하나도 주지 않는 것, Few-shot은 예시 몇 개를 함께 보여 주는 것" }
+    ]
+  },
+  {
+    "id": "prompt-engineering",
+    "term": "프롬프트 엔지니어링",
+    "termEn": "Prompt Engineering",
+    "aliases": ["프롬프트작성", "프롬프트설계", "프롬프트튜닝"],
+    "category": "실행",
+    "level": "기초",
+    "oneLiner": "원하는 답을 얻도록 지시문을 잘 짜는 요령",
+    "description": "프롬프트 엔지니어링은 AI에게 보내는 지시문(프롬프트)을 다듬어, 더 정확하고 원하는 형태의 답을 끌어내는 기술입니다. 역할을 지정하고, 예시를 붙이고, 출력 형식을 명확히 요구하는 등의 방법을 씁니다. 모델을 바꾸지 않고 지시만 바꿔 품질을 크게 올릴 수 있어 가장 손쉬운 개선 수단입니다.",
+    "analogy": "같은 직원에게도 지시를 구체적으로 주면 결과물이 좋아지는 것과 같습니다.",
+    "example": "'요약해 줘' 대신 '3문장, 존댓말, 핵심만 요약해 줘'라고 바꾸면 결과가 훨씬 안정적이 됩니다.",
+    "related": ["prompt", "few-shot", "cot"],
+    "confusedWith": [
+      { "id": "finetuning", "note": "프롬프트 엔지니어링은 지시문만 손봐서 결과를 개선하는 것, 파인튜닝은 모델 자체를 다시 학습시키는 것" }
+    ]
+  },
+  {
+    "id": "top-p",
+    "term": "Top-p 샘플링",
+    "termEn": "Top-p (Nucleus Sampling)",
+    "aliases": ["탑피", "뉴클리어스샘플링", "top-p"],
+    "category": "실행",
+    "level": "중급",
+    "oneLiner": "다음 단어 후보를 확률 상위 묶음으로 제한해 고르는 설정",
+    "description": "Top-p는 AI가 다음 단어를 고를 때, 확률이 높은 후보들을 누적 확률 p(예: 0.9)가 될 때까지만 남기고 그 안에서 고르게 하는 설정입니다. 값이 낮으면 안전하고 뻔한 단어만, 높으면 다양한 단어까지 후보에 들어옵니다. Temperature와 함께 답변의 다양성을 조절하는 대표 손잡이입니다.",
+    "analogy": "메뉴판에서 인기 상위 몇 개 안에서만 고르게 범위를 좁혀 두는 것과 같습니다.",
+    "example": "출력이 너무 산만하면 Top-p를 0.9에서 0.7로 낮춰, 엉뚱한 후보 단어가 끼어들 여지를 줄입니다.",
+    "related": ["temperature", "parameter", "streaming"],
+    "confusedWith": [
+      { "id": "temperature", "note": "Temperature는 확률 분포 자체를 평평·뾰족하게 조절, Top-p는 후보 목록을 상위 몇 %로 잘라내는 방식" }
+    ]
+  },
+  {
+    "id": "structured-output",
+    "term": "구조화 출력",
+    "termEn": "Structured Output",
+    "aliases": ["JSON모드", "구조화출력", "스키마출력"],
+    "category": "실행",
+    "level": "중급",
+    "oneLiner": "답을 정해진 JSON 등 형식에 맞춰 내놓게 강제하는 기능",
+    "description": "구조화 출력은 모델이 자유 문장 대신, 미리 정한 JSON 같은 형식에 딱 맞춰 답하도록 만드는 기능입니다. 결과를 프로그램이 곧바로 받아 처리할 수 있어, 자동화·연동에 필수입니다. 형식을 스키마로 지정하면 모델이 그 틀을 벗어나지 않게 답합니다.",
+    "analogy": "자유 서술 대신 빈칸 채우기 양식지에 맞춰 답을 적게 하는 것과 같습니다.",
+    "example": "고객 문의에서 '이름·연락처·요청유형'을 JSON으로 뽑아 시스템에 자동 등록할 때 구조화 출력을 씁니다.",
+    "related": ["function-calling", "prompt", "agent"],
+    "confusedWith": [
+      { "id": "function-calling", "note": "구조화 출력은 답을 정해진 형식으로 받는 것, Function Calling은 그 형식으로 외부 도구·함수를 실제로 호출하는 것" }
+    ]
+  },
+  {
+    "id": "react",
+    "visual": { "type": "component", "name": "AgentLoopDemo", "caption": "생각과 도구 실행을 번갈아 하며 목표에 다가갑니다." },
+    "term": "ReAct",
+    "termEn": "ReAct (Reason + Act)",
+    "aliases": ["리액트패턴", "추론행동", "ReAct"],
+    "category": "구조",
+    "level": "심화",
+    "oneLiner": "생각하고→도구 쓰고→결과 보고 다시 생각하며 문제를 푸는 에이전트 방식",
+    "description": "ReAct는 AI가 '무엇을 할지 추론하고(Reason), 도구를 실제로 실행하고(Act), 그 결과를 보고 다음을 다시 판단'하는 과정을 반복하며 목표에 다가가는 방식입니다. 생각만 하거나 무작정 도구만 부르지 않고 둘을 번갈아 하기에, 검색·계산 같은 외부 도구가 필요한 복잡한 일을 단계적으로 풀 수 있습니다. 많은 에이전트의 기본 골격입니다.",
+    "analogy": "지도를 보고 한 골목 가 본 뒤 다시 위치를 확인하며 길을 찾아가는 사람과 같습니다.",
+    "example": "'이번 달 매출 정리해 줘' 요청에 에이전트가 DB 조회→결과 확인→부족하면 재조회를 반복한다면 ReAct 패턴입니다.",
+    "related": ["agent", "function-calling", "cot"],
+    "confusedWith": [
+      { "id": "cot", "note": "CoT는 머릿속 생각만 단계적으로 펼치는 것, ReAct는 그 생각 사이사이에 실제 도구 실행을 끼워 넣는 것" }
+    ]
+  },
+  {
+    "id": "semantic-search",
+    "term": "시맨틱 검색",
+    "termEn": "Semantic Search",
+    "aliases": ["의미검색", "시맨틱검색", "벡터검색"],
+    "category": "저장검색",
+    "level": "기초",
+    "oneLiner": "글자가 아니라 '의미'가 비슷한 것을 찾아 주는 검색",
+    "description": "시맨틱 검색은 검색어와 문서를 각각 임베딩(의미 숫자)으로 바꾼 뒤, 뜻이 가까운 것을 찾아 주는 방식입니다. 단어가 정확히 겹치지 않아도 의미만 비슷하면 걸리므로, '환불'로 검색해도 '결제 취소' 문서를 찾아냅니다. RAG의 검색 단계가 대부분 이 방식으로 동작합니다.",
+    "analogy": "단어가 아니라 '무슨 뜻인지'로 책을 찾아 주는 사서와 같습니다.",
+    "example": "사내 위키에서 '휴가'로 검색했는데 '연차·반차' 문서까지 나온다면 시맨틱 검색이 의미로 매칭한 것입니다.",
+    "related": ["embedding", "vector", "hybrid-search"],
+    "confusedWith": [
+      { "id": "hybrid-search", "note": "시맨틱 검색은 의미 유사도만으로 찾는 방식, 하이브리드 검색은 여기에 키워드 검색을 더해 함께 쓰는 방식" }
+    ]
+  },
+  {
+    "id": "retriever",
+    "term": "리트리버",
+    "termEn": "Retriever",
+    "aliases": ["검색기", "리트리버", "리트리벌"],
+    "category": "저장검색",
+    "level": "중급",
+    "oneLiner": "질문에 관련된 문서 조각을 찾아오는 RAG의 검색 담당 부품",
+    "description": "리트리버는 RAG에서 '질문에 맞는 자료를 창고에서 찾아오는' 역할을 맡은 부품입니다. 사용자의 질문을 받아 벡터DB나 키워드 색인에서 관련 청크를 골라 모델에 전달합니다. 리트리버가 엉뚱한 걸 가져오면 뒤이은 답변도 틀어지므로, RAG 품질의 첫 단추입니다.",
+    "analogy": "요청을 받아 서고에서 딱 맞는 책을 뽑아다 주는 사서와 같습니다.",
+    "example": "RAG 챗봇이 근거로 엉뚱한 문서를 보여 준다면, 답변 모델보다 리트리버가 잘못 찾아온 경우가 많습니다.",
+    "related": ["rag", "embedding", "reranking"],
+    "confusedWith": [
+      { "id": "reranking", "note": "리트리버는 후보 문서를 빠르게 넓게 찾아오는 단계, 리랭킹은 그 후보를 다시 정밀하게 순위 매기는 단계" }
+    ]
+  },
+  {
+    "id": "bm25",
+    "term": "BM25",
+    "termEn": "BM25",
+    "aliases": ["비엠25", "키워드검색", "BM25"],
+    "category": "저장검색",
+    "level": "중급",
+    "oneLiner": "단어가 얼마나 겹치는지로 문서를 찾는 대표적 키워드 검색 방식",
+    "description": "BM25는 검색어에 든 단어가 문서에 얼마나 자주, 얼마나 드물게 나오는지를 계산해 관련도를 매기는 전통적 키워드 검색 방식입니다. 의미는 몰라도 정확한 단어·고유명사·코드 같은 걸 찾는 데 강합니다. 의미 검색(시맨틱)과 약점이 반대라, 둘을 합친 하이브리드 검색에서 짝으로 자주 쓰입니다.",
+    "analogy": "책에서 특정 단어가 몇 번 나오는지 색인으로 찾아 주는 옛날 방식 검색과 같습니다.",
+    "example": "제품 코드 'AX-2200'처럼 정확히 일치해야 하는 검색은 의미 검색보다 BM25가 더 잘 잡습니다.",
+    "related": ["hybrid-search", "semantic-search", "ann-search"],
+    "confusedWith": [
+      { "id": "semantic-search", "note": "BM25는 단어 일치로 찾는 키워드 방식, 시맨틱 검색은 뜻의 유사도로 찾는 의미 방식" }
+    ]
+  },
+  {
+    "id": "hnsw",
+    "visual": { "type": "component", "name": "AnnSearchDemo", "caption": "여러 층 그래프를 점프하며 가까운 점을 빠르게 찾습니다." },
+    "term": "HNSW",
+    "termEn": "HNSW",
+    "aliases": ["에이치엔에스더블유", "벡터색인", "HNSW"],
+    "category": "저장검색",
+    "level": "심화",
+    "oneLiner": "벡터를 계층 그래프로 이어 빠르게 근접 검색하게 해 주는 색인 구조",
+    "description": "HNSW는 수많은 벡터를 여러 층의 그래프로 연결해 두어, 비슷한 벡터를 빠르게 찾아가도록 만든 색인 방식입니다. 모든 벡터를 일일이 비교하지 않고 그래프를 따라 점프하며 후보를 좁히므로, 대규모 벡터 검색을 빠르게 해 줍니다. 많은 벡터DB가 내부적으로 채택한 ANN 검색의 대표 구현입니다.",
+    "analogy": "지하철 급행·완행 노선을 갈아타며 목적지 근처까지 빠르게 다가가는 것과 같습니다.",
+    "example": "벡터DB가 수백만 건에서도 즉시 유사 문서를 찾아 준다면, 내부에서 HNSW 같은 색인이 검색을 가속하고 있는 것입니다.",
+    "related": ["ann-search", "vectordb", "cosine-similarity"],
+    "confusedWith": [
+      { "id": "ann-search", "note": "ANN 검색은 '근사 최근접 탐색'이라는 목표·개념, HNSW는 그 목표를 이루는 구체적 색인 구조 중 하나" }
+    ]
+  },
+  {
+    "id": "llm-as-judge",
+    "term": "LLM 평가자",
+    "termEn": "LLM-as-a-Judge",
+    "aliases": ["엘엘엠평가자", "모델심판", "LLM심사"],
+    "category": "문제평가",
+    "level": "중급",
+    "oneLiner": "AI 답변의 품질을 사람 대신 또 다른 AI가 채점하게 하는 방법",
+    "description": "LLM 평가자는 모델이 내놓은 답을 사람이 일일이 검토하는 대신, 또 다른 강한 모델에게 채점 기준을 주고 점수·판정을 맡기는 방식입니다. 대량의 답변을 빠르고 값싸게 평가할 수 있어, 프롬프트나 RAG를 개선할 때 널리 씁니다. 다만 심판 모델도 편향·실수가 있어 사람 검수와 병행해야 합니다.",
+    "analogy": "채점 기준표를 든 조교가 수많은 답안을 대신 채점해 주는 것과 같습니다.",
+    "example": "프롬프트 A와 B 중 뭐가 나은지, 두 답을 LLM 평가자에게 비교시켜 승률로 빠르게 판단합니다.",
+    "related": ["ragas", "benchmark", "hallucination"],
+    "confusedWith": [
+      { "id": "ragas", "note": "RAGAS는 RAG 전용 지표를 정형화한 평가 프레임워크, LLM 평가자는 모델에게 직접 채점을 맡기는 더 일반적인 방법" }
+    ]
+  },
+  {
+    "id": "latency",
+    "term": "지연시간",
+    "termEn": "Latency",
+    "aliases": ["레이턴시", "응답지연", "지연"],
+    "category": "문제평가",
+    "level": "기초",
+    "oneLiner": "요청을 보내고 답이 오기까지 걸리는 시간",
+    "description": "지연시간은 사용자가 질문을 보낸 뒤 AI 답이 도착하기까지 걸리는 시간입니다. 모델이 클수록, 처리할 글이 길수록 대개 길어집니다. 체감 속도를 위해 답을 조금씩 흘려보내는 스트리밍을 쓰거나, 더 작은 모델·증류 모델로 바꿔 줄이기도 합니다.",
+    "analogy": "주문을 넣고 음식이 나오기까지 기다리는 시간과 같습니다.",
+    "example": "챗봇 답이 느리다는 불만이 있으면, 지연시간을 줄이려 더 가벼운 모델을 쓰거나 스트리밍으로 첫 글자를 빨리 띄웁니다.",
+    "related": ["streaming", "quantization", "distillation"],
+    "confusedWith": [
+      { "id": "streaming", "note": "지연시간은 답이 오기까지의 걸린 시간 그 자체, 스트리밍은 답을 조금씩 먼저 보여 체감 지연을 줄이는 기법" }
     ]
   }
 ]
