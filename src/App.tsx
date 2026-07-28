@@ -7,6 +7,7 @@ import { SearchBar } from './components/SearchBar'
 import { FilterBar } from './components/FilterBar'
 import { TermCard } from './components/TermCard'
 import { TermDetail } from './components/TermDetail'
+import { useDarkMode } from './lib/useDarkMode'
 
 const TERMS = termsData as Term[]
 const BY_ID = new Map(TERMS.map((t) => [t.id, t]))
@@ -15,6 +16,7 @@ const ISSUE_URL = 'https://github.com/koclam98/ai-word-study/issues/new'
 export default function App() {
   const searcher = useMemo(() => createSearcher(TERMS), [])
   const [query, setQuery] = useState('')
+  const [dark, toggleDark] = useDarkMode()
   const [url, setUrl] = useUrlState()
   const [selected, setSelected] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -84,13 +86,23 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100">
       <div className="mx-auto max-w-3xl px-4 py-8 sm:py-10">
-        <header className="mb-6">
-          <h1 className="text-2xl font-bold">AI 용어 사전</h1>
-          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-            사내 누구나 빠르게 찾아보는 AI 용어 모음 ·{' '}
-            <kbd className="rounded border border-slate-300 px-1 text-xs dark:border-slate-600">/</kbd>{' '}
-            검색 포커스
-          </p>
+        <header className="mb-6 flex items-start justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold">AI 용어 사전</h1>
+            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+              사내 누구나 빠르게 찾아보는 AI 용어 모음 ·{' '}
+              <kbd className="rounded border border-slate-300 px-1 text-xs dark:border-slate-600">/</kbd>{' '}
+              검색 포커스
+            </p>
+          </div>
+          <button
+            onClick={toggleDark}
+            aria-label={dark ? '라이트 모드로 전환' : '다크 모드로 전환'}
+            title={dark ? '라이트 모드로 전환' : '다크 모드로 전환'}
+            className="shrink-0 rounded-lg border border-slate-300 px-2.5 py-2 text-lg leading-none hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"
+          >
+            {dark ? '☀️' : '🌙'}
+          </button>
         </header>
 
         <SearchBar ref={inputRef} value={query} onChange={setQuery} />
