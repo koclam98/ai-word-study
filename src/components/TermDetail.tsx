@@ -2,19 +2,29 @@ import { useState } from 'react'
 import type { Term } from '../types'
 import { CATEGORY_STYLE } from '../lib/categoryColors'
 import { VisualBlock } from './VisualBlock'
+import { CompareView } from './CompareView'
+import { shareUrl } from '../lib/share'
 
 interface Props {
   term: Term
   byId: Map<string, Term>
   onClose: () => void
   onNavigate: (id: string) => void
+  isBookmarked: boolean
+  onToggleBookmark: (id: string) => void
 }
 
-export function TermDetail({ term, byId, onClose, onNavigate }: Props) {
+export function TermDetail({ term, byId, onClose, onNavigate, isBookmarked, onToggleBookmark }: Props) {
   const [copied, setCopied] = useState(false)
+  // 헷갈리는 개념 비교로 열 상대 용어 id
+  const [compareId, setCompareId] = useState<string | null>(null)
+  const compareTerm = compareId ? byId.get(compareId) : null
+  const compareNote =
+    (compareId && term.confusedWith.find((c) => c.id === compareId)?.note) || ''
 
   const copyLink = async () => {
-    const url = `${location.origin}${location.pathname}#/term/${encodeURIComponent(term.id)}`
+    // 슬랙 등에서 미리보기 카드가 뜨도록 용어별 공유 페이지(OG 메타 포함) 링크를 복사
+    const url = shareUrl(term.id)
     try {
       await navigator.clipboard.writeText(url)
       setCopied(true)
@@ -56,6 +66,14 @@ export function TermDetail({ term, byId, onClose, onNavigate }: Props) {
             )}
           </div>
           <div className="flex shrink-0 gap-2">
+            <button
+              onClick={() => onToggleBookmark(term.id)}
+              aria-label={isBookmarked ? '북마크 해제' : '북마크'}
+              title={isBookmarked ? '북마크 해제' : '북마크'}
+              className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"
+            >
+              {isBookmarked ? '★' : '☆'}
+            </button>
             <button
               onClick={copyLink}
               className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"
@@ -108,13 +126,23 @@ export function TermDetail({ term, byId, onClose, onNavigate }: Props) {
                   const other = byId.get(c.id)
                   return (
                     <li key={c.id} className="rounded-lg border border-slate-200 p-3 dark:border-slate-800">
-                      <button
-                        onClick={() => onNavigate(c.id)}
-                        disabled={!other}
-                        className="font-medium text-slate-800 underline-offset-2 hover:underline disabled:no-underline dark:text-slate-100"
-                      >
-                        {other ? other.term : c.id}
-                      </button>
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => onNavigate(c.id)}
+                          disabled={!other}
+                          className="font-medium text-slate-800 underline-offset-2 hover:underline disabled:no-underline dark:text-slate-100"
+                        >
+                          {other ? other.term : c.id}
+                        </button>
+                        {other && (
+                          <button
+                            onClick={() => setCompareId(c.id)}
+                            className="ml-auto shrink-0 rounded-full border border-slate-300 px-2 py-0.5 text-xs text-slate-500 hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"
+                          >
+                            ⇄ 비교
+                          </button>
+                        )}
+                      </div>
                       <p className="mt-0.5 text-sm text-slate-600 dark:text-slate-400">{c.note}</p>
                     </li>
                   )
@@ -144,6 +172,15 @@ export function TermDetail({ term, byId, onClose, onNavigate }: Props) {
           )}
         </div>
       </aside>
+
+      {compareTerm && (
+        <CompareView
+          a={term}
+          b={compareTerm}
+          note={compareNote}
+          onClose={() => setCompareId(null)}
+        />
+      )}
     </>
   )
 }

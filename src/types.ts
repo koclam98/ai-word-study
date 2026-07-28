@@ -41,6 +41,13 @@ export interface Term {
   visual?: Visual
 }
 
+export interface Roadmap {
+  id: string
+  title: string
+  description: string
+  steps: string[] // 용어 id 순서
+}
+
 export const CATEGORIES: Category[] = [
   '데이터',
   '학습파이프라인',

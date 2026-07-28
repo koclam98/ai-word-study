@@ -1,0 +1,26 @@
+[
+  {
+    "id": "rag-intro",
+    "title": "RAG 입문",
+    "description": "내 문서를 근거로 답하는 AI를 이해하는 순서",
+    "steps": ["embedding", "chunking", "vectordb", "semantic-search", "rag", "reranking", "hallucination"]
+  },
+  {
+    "id": "llm-basics",
+    "title": "LLM 기초",
+    "description": "언어 모델이 무엇이고 어떻게 다루는지",
+    "steps": ["token", "llm", "parameter", "context-window", "prompt", "temperature", "streaming"]
+  },
+  {
+    "id": "training-pipeline",
+    "title": "학습 데이터 파이프라인",
+    "description": "모델을 학습시킬 데이터를 만드는 과정",
+    "steps": ["dataset", "data-labeling", "data-augmentation", "data-pipeline", "parquet", "sharding", "pretraining"]
+  },
+  {
+    "id": "knowledge-graph",
+    "title": "지식그래프 입문",
+    "description": "관계로 지식을 표현하고 질의하는 법",
+    "steps": ["knowledge-graph", "ontology", "triple", "rdf", "sparql", "graphrag"]
+  }
+]

@@ -1,17 +1,27 @@
 import { useMemo, useRef, useState, useEffect, useCallback } from 'react'
 import termsData from './data/terms.json'
-import type { Term } from './types'
+import roadmapsData from './data/roadmaps.json'
+import { type Term, type Roadmap, type Category, CATEGORIES } from './types'
 import { createSearcher } from './lib/search'
 import { useUrlState } from './lib/url'
+import { useDarkMode } from './lib/useDarkMode'
+import { useLocalList } from './lib/useLocalList'
 import { SearchBar } from './components/SearchBar'
 import { FilterBar } from './components/FilterBar'
 import { TermCard } from './components/TermCard'
 import { TermDetail } from './components/TermDetail'
-import { useDarkMode } from './lib/useDarkMode'
+import { Landing } from './components/Landing'
 
 const TERMS = termsData as Term[]
+const ROADMAPS = roadmapsData as Roadmap[]
 const BY_ID = new Map(TERMS.map((t) => [t.id, t]))
-const ISSUE_URL = 'https://github.com/koclam98/ai-word-study/issues/new'
+const ISSUE_URL = 'https://github.com/koclam98/ai-word-study/issues/new/choose'
+
+// 카테고리별 용어 수 (칩 뱃지용) — 정적이라 모듈 로드 시 1회 계산
+const COUNTS = TERMS.reduce(
+  (acc, t) => ((acc[t.category] = (acc[t.category] ?? 0) + 1), acc),
+  {} as Record<Category, number>,
+)
 
 export default function App() {
   const searcher = useMemo(() => createSearcher(TERMS), [])
@@ -19,9 +29,15 @@ export default function App() {
   const [dark, toggleDark] = useDarkMode()
   const [url, setUrl] = useUrlState()
   const [selected, setSelected] = useState(0)
+  const [grouped, setGrouped] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  // 검색 → 필터 순으로 결과 산출
+  const { list: bookmarks, toggle: toggleBookmark, has: isBookmarked } = useLocalList(
+    'ai-glossary:bookmarks',
+  )
+  const { list: recent, pushRecent } = useLocalList('ai-glossary:recent')
+
+  // 검색 → 필터
   const results = useMemo(() => {
     let list = searcher(query)
     if (url.category) list = list.filter((t) => t.category === url.category)
@@ -29,17 +45,30 @@ export default function App() {
     return list
   }, [searcher, query, url.category, url.level])
 
-  const openTerm = BY_ID.get(url.termId ?? '') ?? null
+  // 그룹 보기면 카테고리 순으로 정렬(선택 인덱스도 이 순서를 따름)
+  const ordered = useMemo(() => {
+    if (!grouped) return results
+    return [...results].sort(
+      (a, b) => CATEGORIES.indexOf(a.category) - CATEGORIES.indexOf(b.category),
+    )
+  }, [results, grouped])
 
-  const open = useCallback((id: string) => setUrl({ termId: id }), [setUrl])
+  const openTerm = BY_ID.get(url.termId ?? '') ?? null
+  const showLanding = !query && !url.category && !url.level
+
+  const open = useCallback(
+    (id: string) => {
+      setUrl({ termId: id })
+      pushRecent(id)
+    },
+    [setUrl, pushRecent],
+  )
   const close = useCallback(() => setUrl({ termId: null }), [setUrl])
 
-  // 결과가 바뀌면 선택 인덱스 리셋
   useEffect(() => {
     setSelected(0)
-  }, [results])
+  }, [ordered])
 
-  // 진입 시 자동 포커스
   useEffect(() => {
     inputRef.current?.focus()
   }, [])
@@ -47,7 +76,6 @@ export default function App() {
   // 전역 키보드 단축키
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      // 상세 열려 있으면 Esc로 닫기 최우선
       if (e.key === 'Escape' && url.termId) {
         e.preventDefault()
         close()
@@ -58,25 +86,22 @@ export default function App() {
         inputRef.current?.focus()
         return
       }
-      // 상세 열려 있을 땐 목록 네비게이션 비활성
       if (url.termId) return
-
       if (e.key === 'ArrowDown') {
         e.preventDefault()
-        setSelected((i) => Math.min(i + 1, results.length - 1))
+        setSelected((i) => Math.min(i + 1, ordered.length - 1))
       } else if (e.key === 'ArrowUp') {
         e.preventDefault()
         setSelected((i) => Math.max(i - 1, 0))
-      } else if (e.key === 'Enter' && results[selected]) {
+      } else if (e.key === 'Enter' && ordered[selected]) {
         e.preventDefault()
-        open(results[selected].id)
+        open(ordered[selected].id)
       }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [results, selected, url.termId, open, close])
+  }, [ordered, selected, url.termId, open, close])
 
-  // 선택된 카드가 보이도록 스크롤
   useEffect(() => {
     document
       .querySelector<HTMLElement>('[data-selected="true"]')
@@ -109,41 +134,71 @@ export default function App() {
         <FilterBar
           category={url.category}
           level={url.level}
+          counts={COUNTS}
+          total={TERMS.length}
+          grouped={grouped}
           onChange={(patch) => setUrl(patch)}
+          onToggleGroup={() => setGrouped((g) => !g)}
         />
 
-        <p className="mt-5 text-sm text-slate-500">{results.length}개 용어</p>
-
-        {results.length > 0 ? (
-          <ul className="mt-3 space-y-3">
-            {results.map((t, i) => (
-              <li key={t.id}>
-                <TermCard
-                  term={t}
-                  query={query}
-                  selected={i === selected}
-                  onOpen={() => open(t.id)}
-                />
-              </li>
-            ))}
-          </ul>
+        {showLanding ? (
+          <Landing
+            terms={TERMS}
+            byId={BY_ID}
+            roadmaps={ROADMAPS}
+            recent={recent}
+            bookmarks={bookmarks}
+            onOpen={open}
+          />
         ) : (
-          <div className="mt-12 text-center">
-            <p className="text-slate-600 dark:text-slate-300">찾는 용어가 없나요?</p>
-            <a
-              href={ISSUE_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-2 inline-block text-sm text-sky-600 underline underline-offset-2 dark:text-sky-400"
-            >
-              아래 이슈로 제보해 주세요 →
-            </a>
-          </div>
+          <>
+            <p className="mt-5 text-sm text-slate-500">{ordered.length}개 용어</p>
+            {ordered.length > 0 ? (
+              <ul className="mt-3 space-y-3">
+                {ordered.map((t, i) => (
+                  <li key={t.id}>
+                    {grouped && (i === 0 || ordered[i - 1].category !== t.category) && (
+                      <h2 className="mb-2 mt-4 text-xs font-semibold uppercase tracking-wide text-slate-400 first:mt-0">
+                        {t.category}
+                      </h2>
+                    )}
+                    <TermCard
+                      term={t}
+                      query={query}
+                      selected={i === selected}
+                      onOpen={() => open(t.id)}
+                      isBookmarked={isBookmarked(t.id)}
+                      onToggleBookmark={toggleBookmark}
+                    />
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className="mt-12 text-center">
+                <p className="text-slate-600 dark:text-slate-300">찾는 용어가 없나요?</p>
+                <a
+                  href={ISSUE_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-2 inline-block text-sm text-sky-600 underline underline-offset-2 dark:text-sky-400"
+                >
+                  아래 이슈로 제보해 주세요 →
+                </a>
+              </div>
+            )}
+          </>
         )}
       </div>
 
       {openTerm && (
-        <TermDetail term={openTerm} byId={BY_ID} onClose={close} onNavigate={open} />
+        <TermDetail
+          term={openTerm}
+          byId={BY_ID}
+          onClose={close}
+          onNavigate={open}
+          isBookmarked={isBookmarked(openTerm.id)}
+          onToggleBookmark={toggleBookmark}
+        />
       )}
     </div>
   )
