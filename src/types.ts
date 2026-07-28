@@ -1,5 +1,6 @@
 export type Category =
   | '데이터'
+  | '학습파이프라인'
   | '저장검색'
   | '모델'
   | '실행'
@@ -42,6 +43,7 @@ export interface Term {
 
 export const CATEGORIES: Category[] = [
   '데이터',
+  '학습파이프라인',
   '저장검색',
   '모델',
   '실행',
