@@ -1,0 +1,27 @@
+<svg viewBox="0 0 330 168" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg" font-family="inherit" role="img" aria-label="행 방식은 모든 데이터를 훑어 읽지만, 파케이의 열 방식은 필요한 열만 골라 빠르게 읽는다는 비교 그림">
+  <!-- 왼쪽: 행 방식(CSV) -->
+  <text x="72" y="20" text-anchor="middle" font-size="11" fill="currentColor">행 방식 (CSV)</text>
+  <g stroke="var(--viz-muted)" stroke-width="1" fill="none">
+    <rect x="24" y="30" width="96" height="90"/>
+    <line x1="24" y1="60" x2="120" y2="60"/><line x1="24" y1="90" x2="120" y2="90"/>
+    <line x1="56" y1="30" x2="56" y2="120"/><line x1="88" y1="30" x2="88" y2="120"/>
+  </g>
+  <!-- 전체를 훑음: 모든 행 강조 -->
+  <g fill="var(--viz-accent-2)" opacity="0.35">
+    <rect x="25" y="31" width="94" height="28"/><rect x="25" y="61" width="94" height="28"/><rect x="25" y="91" width="94" height="28"/>
+  </g>
+  <text x="72" y="138" text-anchor="middle" font-size="9" fill="var(--viz-muted)">전부 훑어 읽음</text>
+
+  <!-- 오른쪽: 열 방식(Parquet) -->
+  <text x="258" y="20" text-anchor="middle" font-size="11" fill="currentColor">열 방식 (파케이)</text>
+  <g stroke="var(--viz-muted)" stroke-width="1" fill="none">
+    <rect x="210" y="30" width="96" height="90"/>
+    <line x1="210" y1="60" x2="306" y2="60"/><line x1="210" y1="90" x2="306" y2="90"/>
+    <line x1="242" y1="30" x2="242" y2="120"/><line x1="274" y1="30" x2="274" y2="120"/>
+  </g>
+  <!-- 필요한 열 하나만 강조 -->
+  <rect x="243" y="31" width="30" height="88" fill="var(--viz-accent)" opacity="0.5"/>
+  <text x="258" y="138" text-anchor="middle" font-size="9" fill="var(--viz-muted)">필요한 열만 읽음 → 빠름</text>
+
+  <line x1="165" y1="26" x2="165" y2="124" stroke="var(--viz-muted)" stroke-width="1" stroke-dasharray="3 3"/>
+</svg>

@@ -1,0 +1,37 @@
+<svg viewBox="0 0 330 150" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg" font-family="inherit" role="img" aria-label="원본 이미지 하나가 회전, 반전, 밝기 변형을 거쳐 여러 장의 학습 데이터로 늘어나는 그림">
+  <defs>
+    <marker id="aug-arrow" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--viz-muted)" stroke-width="1"/>
+    </marker>
+  </defs>
+
+  <!-- 원본 -->
+  <rect x="18" y="50" width="48" height="48" rx="3" fill="none" stroke="currentColor" stroke-width="1"/>
+  <path d="M42 62 l14 24 l-28 0 z" fill="currentColor"/>
+  <text x="42" y="114" text-anchor="middle" font-size="9" fill="var(--viz-muted)">원본 1장</text>
+
+  <!-- 분기 화살표 -->
+  <g stroke="var(--viz-muted)" stroke-width="1" marker-end="url(#aug-arrow)">
+    <line x1="70" y1="66" x2="120" y2="34"/>
+    <line x1="70" y1="74" x2="120" y2="74"/>
+    <line x1="70" y1="82" x2="120" y2="114"/>
+  </g>
+
+  <!-- 변형들 -->
+  <g>
+    <rect x="126" y="12" width="44" height="44" rx="3" fill="none" stroke="var(--viz-accent)" stroke-width="1"/>
+    <path d="M148 50 l14 -24 l-28 0 z" fill="var(--viz-accent)"/>
+    <text x="180" y="38" font-size="9" fill="var(--viz-muted)">반전</text>
+  </g>
+  <g>
+    <rect x="126" y="60" width="44" height="44" rx="3" fill="none" stroke="var(--viz-accent)" stroke-width="1"/>
+    <path d="M137 82 l22 -12 l0 24 z" fill="var(--viz-accent)"/>
+    <text x="180" y="86" font-size="9" fill="var(--viz-muted)">회전</text>
+  </g>
+  <g>
+    <rect x="126" y="108" width="44" height="44" rx="3" fill="none" stroke="var(--viz-accent)" stroke-width="1"/>
+    <path d="M148 120 l14 24 l-28 0 z" fill="var(--viz-accent)" opacity="0.4"/>
+    <text x="180" y="134" font-size="9" fill="var(--viz-muted)">밝기</text>
+  </g>
+  <text x="245" y="86" font-size="10" fill="currentColor">→ 여러 장</text>
+</svg>

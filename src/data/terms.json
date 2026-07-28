@@ -1023,7 +1023,12 @@
     "analogy": "채점된 모범답안을 만들어 주는 일과 같습니다. 답이 정확해야 학생이 제대로 배웁니다.",
     "example": "리뷰 감정 분석 모델을 위해, 수천 개 리뷰에 사람이 '긍정/부정' 라벨을 달아 학습 데이터를 만듭니다.",
     "related": ["dataset", "finetuning", "rlhf"],
-    "confusedWith": []
+    "confusedWith": [],
+    "visual": {
+      "type": "svg",
+      "src": "/visuals/data-labeling.svg",
+      "caption": "정답이 없는 데이터에 사람이 긍정·부정 같은 정답표를 달아 학습용으로 만듭니다."
+    }
   },
   {
     "id": "data-augmentation",
@@ -1039,7 +1044,12 @@
     "related": ["dataset", "overfitting", "pretraining"],
     "confusedWith": [
       { "id": "overfitting", "note": "데이터 증강은 데이터를 늘려 다양성을 주는 기법, 과적합은 그런 다양성이 부족할 때 생기는 문제 현상" }
-    ]
+    ],
+    "visual": {
+      "type": "svg",
+      "src": "/visuals/data-augmentation.svg",
+      "caption": "원본 1장을 회전·반전·밝기로 변형해 여러 장으로 늘립니다 → 과적합 완화."
+    }
   },
   {
     "id": "parquet",
@@ -1053,7 +1063,12 @@
     "analogy": "책을 통째로 복사하지 않고, 필요한 목차 항목만 뽑아 볼 수 있게 정리해 둔 것과 같습니다.",
     "example": "수억 건 로그를 파케이로 저장해 두면, 학습에 쓸 '텍스트'와 '라벨' 열만 골라 빠르게 불러올 수 있습니다.",
     "related": ["dataset", "sharding", "data-pipeline"],
-    "confusedWith": []
+    "confusedWith": [],
+    "visual": {
+      "type": "svg",
+      "src": "/visuals/parquet.svg",
+      "caption": "행 방식은 전부 훑지만, 파케이의 열 방식은 필요한 열만 골라 빠르게 읽습니다."
+    }
   },
   {
     "id": "sharding",
@@ -1069,7 +1084,12 @@
     "related": ["parquet", "dataset", "pretraining"],
     "confusedWith": [
       { "id": "chunking", "note": "샤딩은 대량 데이터를 저장·학습용으로 장비에 나누는 것, 청킹은 검색을 위해 문서를 의미 조각으로 자르는 것" }
-    ]
+    ],
+    "visual": {
+      "type": "component",
+      "name": "ShardingDemo",
+      "caption": "큰 데이터를 여러 조각(샤드)으로 나눠 여러 장비에 분산 → 동시에 처리해 빨라집니다."
+    }
   },
   {
     "id": "data-pipeline",
@@ -1083,6 +1103,11 @@
     "analogy": "원재료가 세척·손질·포장 라인을 거쳐 완제품으로 나오는 공장 컨베이어벨트와 같습니다.",
     "example": "매일 쌓이는 상담 로그를 수집→개인정보 제거→정제→파케이 저장까지 자동으로 처리하는 흐름이 데이터 파이프라인입니다.",
     "related": ["dataset", "parquet", "chunking", "embedding"],
-    "confusedWith": []
+    "confusedWith": [],
+    "visual": {
+      "type": "component",
+      "name": "PipelineFlowDemo",
+      "caption": "지저분한 원본이 수집→정제→가공→저장을 거쳐 깔끔한 학습 데이터로 흘러 나옵니다."
+    }
   }
 ]

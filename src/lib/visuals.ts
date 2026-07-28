@@ -1,7 +1,12 @@
 import type { ComponentType } from 'react'
 import { ChunkingDemo } from '../components/visuals/ChunkingDemo'
 import { TemperatureDemo } from '../components/visuals/TemperatureDemo'
-import { RagFlowDemo, ContextWindowDemo } from '../components/visuals/FlowDemos'
+import {
+  RagFlowDemo,
+  ContextWindowDemo,
+  PipelineFlowDemo,
+  ShardingDemo,
+} from '../components/visuals/FlowDemos'
 import {
   StreamingDemo,
   TokenizeDemo,
@@ -45,6 +50,8 @@ export const COMPONENTS: Record<string, ComponentType> = {
   TemperatureDemo,
   RagFlowDemo,
   ContextWindowDemo,
+  PipelineFlowDemo,
+  ShardingDemo,
   StreamingDemo,
   TokenizeDemo,
   CotDemo,
