@@ -11,6 +11,7 @@ import { FilterBar } from './components/FilterBar'
 import { TermCard } from './components/TermCard'
 import { TermDetail } from './components/TermDetail'
 import { Landing } from './components/Landing'
+import { AdBanner } from './components/AdBanner'
 
 const TERMS = termsData as Term[]
 const ROADMAPS = roadmapsData as Roadmap[]
@@ -129,6 +130,8 @@ export default function App() {
             {dark ? '☀️' : '🌙'}
           </button>
         </header>
+
+        <AdBanner />
 
         <SearchBar ref={inputRef} value={query} onChange={setQuery} />
         <FilterBar
