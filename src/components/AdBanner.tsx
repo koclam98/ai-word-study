@@ -1,9 +1,7 @@
 import { useEffect } from 'react'
 
-// AdSense 승인 후 발급받은 값으로 교체:
-// - CLIENT: ca-pub-XXXXXXXXXXXXXXXX (index.html 스크립트와 동일)
-// - SLOT: 광고 단위 생성 시 나오는 data-ad-slot 숫자
-const CLIENT = 'ca-pub-XXXXXXXXXXXXXXXX'
+// SLOT: AdSense → 광고 → 광고 단위 기준 → 디스플레이 광고 생성 시 나오는 data-ad-slot 숫자로 교체
+const CLIENT = 'ca-pub-9103352043785115'
 const SLOT = 'XXXXXXXXXX'
 
 declare global {
