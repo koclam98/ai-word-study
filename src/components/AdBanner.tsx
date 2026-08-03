@@ -21,7 +21,7 @@ export function AdBanner() {
 
   return (
     <ins
-      className="adsbygoogle block"
+      className="adsbygoogle mb-6 block"
       style={{ display: 'block' }}
       data-ad-client={CLIENT}
       data-ad-slot={SLOT}
